@@ -785,7 +785,7 @@ export class CustomComponent implements OnInit {
         let objectType = object.objectType;
         self.canvas.remove(object);
         if (objectType) {
-          this.shopService.removeModification(objectType);
+          self.shopService.removeModification(objectType);
         }
       });
     }
