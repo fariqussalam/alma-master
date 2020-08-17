@@ -35,6 +35,19 @@ export class ShopService extends ObservableStore<any> {
     this.setState({ mods: mods }, "REMOVE_MODIFICATIONS");
   }
 
+  cleanModification() {
+    this.setState({ mods: [] }, "CLEAN_MODIFICATIONS");
+  }
+
+  reinit() {
+    const initialState = {
+      product: null,
+      mods: [],
+      totalPrice: 0,
+    };
+    this.setState(initialState, "INITIALIZE_STATE");
+  }
+
   getProduct() {
     const product = this.getState().product;
     if (product) {

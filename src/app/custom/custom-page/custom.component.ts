@@ -117,6 +117,14 @@ export class CustomComponent implements OnInit {
         }
       })
     );
+    this.subs.add(
+      this.shopService.globalStateChanged.subscribe((state) => {
+        if (state) {
+          this.product = state.product;
+          this.totalPrice = this.toRupiah(this.shopService.getTotalPrice());
+        }
+      })
+    );
 
     let product = null;
     if (this.params.itemType == "t-shirt") {
@@ -224,6 +232,10 @@ export class CustomComponent implements OnInit {
   ngOnDestroy() {
     if (this.mySubscription) {
       this.mySubscription.unsubscribe();
+    }
+    this.shopService.reinit();
+    if (this.subs) {
+      this.subs.unsubscribe();
     }
   }
 
@@ -416,6 +428,7 @@ export class CustomComponent implements OnInit {
 
   cleanSelect() {
     this.canvas.discardActiveObject().renderAll();
+    this.canvas.discardActiveGroup().renderAll();
   }
 
   selectItemAfterAdded(obj) {
@@ -507,6 +520,10 @@ export class CustomComponent implements OnInit {
 
   addModification(mod) {
     this.shopService.addModification(mod);
+  }
+
+  cleanModification() {
+    this.shopService.cleanModification();
   }
 
   countPrice(item) {
@@ -768,9 +785,7 @@ export class CustomComponent implements OnInit {
 
   removeSelected() {
     let activeObject = this.canvas.getActiveObject();
-
     let activeGroup = this.canvas.getActiveGroup();
-
     if (activeObject) {
       this.canvas.remove(activeObject);
       let objectType = activeObject.objectType;
@@ -825,6 +840,7 @@ export class CustomComponent implements OnInit {
 
   confirmClear() {
     if (confirm("Are you sure?")) {
+      this.cleanModification();
       this.canvas.clear();
       this.itemsData.price = 0;
       this.itemPrice = 0;
@@ -846,6 +862,7 @@ export class CustomComponent implements OnInit {
     //   w.document.write(image.outerHTML);
     // }
 
+    this.cleanSelect();
     let node = document.getElementById("tshirt-div");
     let border = node.querySelector(".canvas-style");
     border.classList.remove("canvas-style");
@@ -874,6 +891,7 @@ export class CustomComponent implements OnInit {
     // var w = window.open("");
     // w.document.write(this.canvas.toSVG());
 
+    this.cleanSelect();
     let node = document.getElementById("tshirt-div");
     let filters = node.tagName !== "i";
     let border = node.querySelector(".canvas-style");
