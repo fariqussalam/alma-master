@@ -1,0 +1,26 @@
+<div class="main-wrapper">
+  <div class="container">
+    <div class="login-panel">
+      <h2 class="title">Existing Customers</h2>
+        <form>
+          <label>Email address</label>
+          <input [uiInput] name="u_id" [(ngModel)]="loginUserData.u_id">
+          <label>Password</label>
+          <input type="password" [uiInput] name="pwd" [(ngModel)]="loginUserData.pwd">
+          
+        </form>
+        <div class="forgotten-password">
+          <a href="">Forgotten your password?</a>
+        </div>
+        <div class="login-box">
+          <button (click)="loginUser()" type="button">Sign In</button>
+        </div>
+    </div>
+    <div class="login-panel">
+      <h2 class="title">New to UP TO MEE?</h2>
+      <div class="login-box">
+        <button class="login" routerLink="../sign-up">Continue</button>
+      </div>
+    </div>
+  </div>
+</div>

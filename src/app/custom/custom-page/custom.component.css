@@ -1,0 +1,132 @@
+ .canvas-style {
+    border: 2px dashed #d0d0d0;
+  }
+  
+  /*canvas border color*/
+  /*#cccccc*/
+
+  .input-group-append .btn, .input-group-prepend .btn {
+      z-index: 0;
+  }
+
+  .main-title{
+    margin-top: 10px;
+  }
+  .images-item {
+    width: 48%;
+    cursor: pointer;
+    -webkit-transition: .5s ease;
+    -webkit-transition: .5s ease;
+    padding: 3px;
+    max-width: 120px;
+  }
+  
+  .images-item:hover {
+    opacity: 0.7;
+  }
+  
+  .images-item-upload {
+    width: 80%;
+    cursor: pointer;
+    padding-bottom: 10px;
+    -webkit-transition: .5s ease;
+    -webkit-transition: .5s ease;
+  }
+  
+  .images-item-upload:hover {
+    opacity: 0.7;
+  }
+  
+  .custom-item {
+    border-bottom: 2px solid #f3f3f3;
+  }
+  
+  .custom-item .custom-item-title {
+    color: #666666;
+    font-weight: 600;
+  }
+  
+  .custom-item .custom-item-body {
+    padding: 10px 0;
+  }
+  
+  .max-height{
+    overflow: auto;
+    max-height: 300px;
+  }
+  
+  .price {
+    margin: auto;
+    font-size: xx-large;
+    color: #34495e;
+  }
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.btn:not([disabled]):not(.disabled) {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+/* canvas*/
+.canvas-tShirt-area{
+    position: absolute;
+    top: 180px;
+    left: 170px;
+    z-index: 10;
+    width: 200px;
+    height: 400px;
+}
+
+.canvas-hoodie-area{
+    position: absolute;
+    top: 180px;
+    left: 175px;
+    z-index: 10;
+    width: 200px;
+    height: 400px;
+}
+
+.canvas-tank-area{
+    position: absolute;
+    top: 250px;
+    left: 175px;
+    z-index: 10;
+    width: 200px;
+    height: 400px;
+}
+
+.canvas-container{
+    width: 200px; 
+    height: 400px; 
+    position: relative; 
+    user-select: none;
+}
+
+#tshirt-backgroundpicture{
+  margin-left: 5px;
+  margin-top: 30px;
+}
+
+#tshirt-div{
+    width: 452px;
+    height: 548px;
+    position: relative;
+    /*background-color: #fff;*/
+}
